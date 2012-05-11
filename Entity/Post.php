@@ -32,6 +32,11 @@ class Post implements CrudableInterface
     protected $body;
 
     /**
+     * @var boolean
+     */
+    protected $isLead;
+
+    /**
      * @var \DateTime
      */
     protected $publishedAt;
@@ -155,5 +160,21 @@ class Post implements CrudableInterface
         return array(
             'id' => $this->id
         );
+    }
+
+    /**
+     * @param boolean $isLead
+     */
+    public function setIsLead($isLead)
+    {
+        $this->isLead = $isLead;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsLead()
+    {
+        return $this->isLead;
     }
 }

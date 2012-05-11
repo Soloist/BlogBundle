@@ -12,12 +12,13 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('publishedAt', 'fw_jquery_date')
+            ->add('isLead')
             ->add('lead', 'textarea')
             ->add('body', 'textarea')
         ;
     }
 
-    public function getDefaultOptions(array $options)
+    public function getDefaultOptions()
     {
         return array(
             'data_class' => 'Soloist\\Bundle\\BlogBundle\\Entity\\Post',
