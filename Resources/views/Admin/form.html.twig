@@ -1,0 +1,14 @@
+{{ form_row(form.title) }}
+
+<div class="control-group">
+    <label class="control-label">Published at</label>
+    <div class="controls">
+        {{ form_widget(form.publishedAt) }}
+    </div>
+    {{ form_errors(form.publishedAt) }}
+</div>
+
+{{ form_row(form.lead) }}
+{{ form_row(form.body) }}
+
+{{ form_rest(form) }}

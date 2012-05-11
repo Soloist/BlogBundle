@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="soloist_admin_blog_index" pattern="/admin/soloist/blog">
+        <default key="_controller">SoloistBlogBundle:Admin:index</default>
+    </route>
+    <route id="soloist_admin_blog_new" pattern="/admin/soloist/blog/new">
+        <default key="_controller">SoloistBlogBundle:Admin:new</default>
+        <requirement key="_method">GET</requirement>
+    </route>
+    <route id="soloist_admin_blog_create" pattern="/admin/soloist/blog/new">
+        <default key="_controller">SoloistBlogBundle:Admin:create</default>
+        <requirement key="_method">POST</requirement>
+    </route>
+    <route id="soloist_admin_blog_edit" pattern="/admin/soloist/blog/edit/{id}">
+        <default key="_controller">SoloistBlogBundle:Admin:edit</default>
+        <requirement key="_method">GET</requirement>
+    </route>
+    <route id="soloist_admin_blog_update" pattern="/admin/soloist/blog/edit/{id}">
+        <default key="_controller">SoloistBlogBundle:Admin:update</default>
+        <requirement key="_method">POST</requirement>
+    </route>
+    <route id="soloist_admin_blog_delete" pattern="/admin/soloist/blog/delete/{id}">
+        <default key="_controller">SoloistBlogBundle:Admin:delete</default>
+        <requirement key="_method">GET</requirement>
+    </route>
+</routes>

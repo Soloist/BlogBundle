@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <entity name="Soloist\Bundle\BlogBundle\Entity\Post"
+            table="soloist_post"
+            repository-class="Soloist\Bundle\BlogBundle\Entity\Repository\Post">
+
+        <id    name="id"           column="id"            type="integer"   >
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="slug"         column="slug"          type="string"    >
+            <gedmo:slug unique="true" style="default" updatable="false" separator="-" fields="title" />
+        </field>
+        <field name="title"        column="title"         type="string"   />
+        <field name="lead"         column="lead"          type="text"     />
+        <field name="body"         column="body"          type="text"     />
+        <field name="publishedAt"  column="published_at"  type="datetime" />
+        <field name="createdAt"    column="created_at"    type="datetime"  >
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt"    column="updated_at"    type="datetime"  >
+            <gedmo:timestampable on="update"/>
+        </field>
+
+    </entity>
+
+</doctrine-mapping>
