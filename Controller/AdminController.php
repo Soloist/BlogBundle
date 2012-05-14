@@ -18,6 +18,7 @@ class AdminController extends ORMCrudController
             'display'      => array(
                 'id'          => array('label' => 'N°'),
                 'publishedAt' => array('label' => 'Date de publication', 'type' => 'date'),
+                'isLead'      => array('label' => 'A la Une ?', 'type' => 'boolean'),
                 'title'       => array('label' => 'Titre')
             ),
             'prefix'       => 'soloist_admin_blog',

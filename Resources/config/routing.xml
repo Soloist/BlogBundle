@@ -4,6 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
+    <!-- front -->
+    <route id="soloist_blog_show" pattern="/blog/post/{slug}.html">
+        <default key="_controller">SoloistBlogBundle:Default:show</default>
+        <requirement key="slug">[-a-zA-Z0-9]+</requirement>
+    </route>
+
+    <!-- Admin -->
     <route id="soloist_admin_blog_index" pattern="/admin/soloist/blog">
         <default key="_controller">SoloistBlogBundle:Admin:index</default>
     </route>
