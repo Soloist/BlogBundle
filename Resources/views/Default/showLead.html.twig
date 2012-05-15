@@ -1,3 +1,4 @@
+{% if post is defined %}
 <h1 class="post-title">{{ post.title }}</h1>
 <p class="post-lead">
     {% if post.lead %}
@@ -10,3 +11,4 @@
         {% trans %}news.readmore{% endtrans %}
     </a>
 </p>
+{% endif %}

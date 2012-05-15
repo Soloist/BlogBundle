@@ -14,9 +14,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array(
-            'posts' => $this->getDoctrine()->getEntityManager()->getRepository('SoloistBlogBundle:Post')->findAll()
-        );
+        try {
+            return array(
+                'posts' => $this->getDoctrine()->getEntityManager()->getRepository('SoloistBlogBundle:Post')->findAll()
+            );
+        } catch(\Doctrine\ORM\NoResultException $e) {
+            return array(
+                'posts'  => array()
+            );
+        }
     }
 
     /**
@@ -32,8 +38,12 @@ class DefaultController extends Controller
      */
     public function showLeadAction()
     {
-        return array(
-            'post' => $this->getDoctrine()->getEntityManager()->getRepository('SoloistBlogBundle:Post')->findLead()
-        );
+        try {
+            return array(
+                'post' => $this->getDoctrine()->getEntityManager()->getRepository('SoloistBlogBundle:Post')->findLead()
+            );
+        } catch(\Doctrine\ORM\NoResultException $e) {
+            return array();
+        }
     }
 }

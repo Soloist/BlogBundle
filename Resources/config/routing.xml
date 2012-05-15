@@ -5,6 +5,9 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <!-- front -->
+    <route id="soloist_blog_index" pattern="/blog/post/articles.html">
+        <default key="_controller">SoloistBlogBundle:Default:index</default>
+    </route>
     <route id="soloist_blog_show" pattern="/blog/post/{slug}.html">
         <default key="_controller">SoloistBlogBundle:Default:show</default>
         <requirement key="slug">[-a-zA-Z0-9]+</requirement>

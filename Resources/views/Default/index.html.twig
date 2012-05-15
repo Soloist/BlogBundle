@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends 'SoloistBlogBundle:Default:base.html.twig' %}
+
+{% block blog_content %}
+    {% for post in posts %}
+    <div id="blog-post">
+        {% include 'SoloistBlogBundle:Default:post.html.twig' %}
+    </div>
+    {% endfor %}
+{% endblock %}
