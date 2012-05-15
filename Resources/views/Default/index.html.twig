@@ -1,9 +1,12 @@
 {% extends 'SoloistBlogBundle:Default:base.html.twig' %}
 
 {% block blog_content %}
-    {% for post in posts %}
+    {% for post in pager.currentPageResults %}
     <div id="blog-post">
         {% include 'SoloistBlogBundle:Default:post.html.twig' %}
     </div>
     {% endfor %}
+    <div id="pager">
+        {{ pagerfanta(pager) }}
+    </div>
 {% endblock %}
