@@ -21,6 +21,6 @@ class ShowLastsType extends AbstractType
      */
     public function getName()
     {
-        'soloist_blog_show_lasts_block_settings';
+        return 'soloist_blog_show_lasts_block_settings';
     }
 }
