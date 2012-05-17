@@ -12,7 +12,7 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('publishedAt', 'fw_jquery_date')
-            ->add('isLead')
+            ->add('isLead', null, array('required' => false))
             ->add('lead', 'textarea')
             ->add('body', 'textarea')
         ;

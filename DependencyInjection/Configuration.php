@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('max_per_page')->end()
+                ->scalarNode('max_per_page')->defaultValue(5)->end()
             ->end()
         ;
 
