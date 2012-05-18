@@ -7,6 +7,11 @@ use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 class Post implements CrudableInterface
 {
     /**
+     * Uploads location
+     */
+    const UPLOAD_DIR = '/web_post_uploads/';
+
+    /**
      * @var integer
      */
     protected $id;
@@ -35,6 +40,11 @@ class Post implements CrudableInterface
      * @var boolean
      */
     protected $isLead;
+
+    /**
+     * @var string
+     */
+    protected $image;
 
     /**
      * @var \DateTime
@@ -176,5 +186,21 @@ class Post implements CrudableInterface
     public function getIsLead()
     {
         return $this->isLead;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

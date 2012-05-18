@@ -5,7 +5,8 @@ namespace Soloist\Bundle\BlogBundle\Controller;
 use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
 
 use Soloist\Bundle\BlogBundle\Form\Type\PostType,
-    Soloist\Bundle\BlogBundle\Entity\Post;
+    Soloist\Bundle\BlogBundle\Entity\Post,
+    Soloist\Bundle\BlogBundle\Form\Handler\PostHandler as Handler;
 
 class AdminController extends ORMCrudController
 {
@@ -30,5 +31,26 @@ class AdminController extends ORMCrudController
             'class'          => new Post,
             'repository'     => 'SoloistBlogBundle:Post',
         );
+    }
+
+
+    /**
+     * Get the form handler
+     *
+     * @return \Soloist\Bundle\BlogBundle\Form\Handler\PostHandler
+     */
+    protected function getFormHandler()
+    {
+        return new Handler(
+            $this->getDoctrine()->getEntityManager(),
+            $this->get('form.factory'),
+            $this->getAbsoluteUploadDir()
+        );
+    }
+
+    private function getAbsoluteUploadDir()
+    {
+        return $this->container->getParameter('kernel.root_dir') . '/../web'
+            . Post::UPLOAD_DIR;
     }
 }
