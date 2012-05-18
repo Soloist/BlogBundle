@@ -15,6 +15,7 @@ class PostType extends AbstractType
             ->add('isLead', null, array('required' => false))
             ->add('lead', 'textarea')
             ->add('body', 'textarea')
+            ->add('image', 'file')
         ;
     }
 
