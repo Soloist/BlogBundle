@@ -4,7 +4,6 @@ namespace Soloist\Bundle\BlogBundle\EventListener;
 
 use FrequenceWeb\Bundle\DashboardBundle\Menu\Event\Configure;
 
-use Doctrine\ORM\EntityManager;
 
 class DashboardListener
 {

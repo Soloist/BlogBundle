@@ -35,6 +35,7 @@ class DefaultController extends Controller
         } catch(\Pagerfanta\Exception\NotValidCurrentPageException $e) {
             throw $this->createNotFoundException('Invalid page number.');
         }
+
         return array(
             'pager' => $pager
         );
