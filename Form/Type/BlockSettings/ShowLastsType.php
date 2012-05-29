@@ -2,12 +2,12 @@
 
 namespace Soloist\Bundle\BlogBundle\Form\Type\BlockSettings;
 
-use Symfony\Component\Form\FormBuilder,
+use Symfony\Component\Form\FormBuilderInterface,
     Symfony\Component\Form\AbstractType;
 
 class ShowLastsType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('nb', 'integer')

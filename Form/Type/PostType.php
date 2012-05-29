@@ -2,12 +2,12 @@
 
 namespace Soloist\Bundle\BlogBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface,
+    Symfony\Component\Form\AbstractType;
 
 class PostType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
