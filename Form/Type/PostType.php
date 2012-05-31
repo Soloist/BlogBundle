@@ -13,8 +13,8 @@ class PostType extends AbstractType
             ->add('title')
             ->add('publishedAt', 'fw_jquery_date')
             ->add('isLead', null, array('required' => false))
-            ->add('lead', 'textarea')
-            ->add('body', 'textarea')
+            ->add('lead', 'html_purified_textarea')
+            ->add('body', 'html_purified_textarea')
             ->add('image', 'file')
         ;
     }
