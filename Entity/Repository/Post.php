@@ -33,4 +33,33 @@ class Post extends EntityRepository
             ->getSingleResult()
         ;
     }
+
+    /**
+     * Returns the query for retrieving last blog posts
+     *
+     * @param $nb
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findLastsQueryBuilder($nb)
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($nb)
+        ;
+    }
+
+    /**
+     * Returns the lasts blog posts
+     *
+     * @param int $nb
+     * @return array
+     */
+    public function findLasts($nb = 5)
+    {
+        return $this
+            ->findLastsQueryBuilder($nb)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

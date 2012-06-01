@@ -1,0 +1,17 @@
+<div class="last-blog-posts">
+    <h2>{% trans %}soloist.blog.last.title{% endtrans %}</h2>
+    {% for post in posts %}
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-lead">
+            {% if post.lead %}
+                {{ post.lead | truncate(200, true) }}
+            {% else %}
+                {{ post.body | truncate(200, true) }}
+            {% endif %}
+            <br />
+            <a href="{{ path('soloist_blog_show', {slug: post.slug}) }}" class="readmore">
+                {% trans %}news.readmore{% endtrans %}
+            </a>
+        </p>
+    {% endfor %}
+</div>

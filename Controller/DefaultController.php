@@ -62,4 +62,14 @@ class DefaultController extends Controller
             return array();
         }
     }
+
+    /**
+     * @Template()
+     */
+    public function showLastsAction($nb = 5)
+    {
+        return array(
+            'posts' => $this->getDoctrine()->getManager()->getRepository('SoloistBlogBundle:Post')->findLasts($nb)
+        );
+    }
 }
