@@ -9,7 +9,7 @@ class Post implements CrudableInterface
     /**
      * Uploads location
      */
-    const UPLOAD_DIR = '/web_post_uploads/';
+    const UPLOAD_DIR = '/web_post_uploads';
 
     /**
      * @var integer
@@ -202,5 +202,13 @@ class Post implements CrudableInterface
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return self::UPLOAD_DIR . '/' . $this->image;
     }
 }
