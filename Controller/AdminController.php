@@ -7,7 +7,7 @@ use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
 use Soloist\Bundle\BlogBundle\Form\Type\PostType,
     Soloist\Bundle\BlogBundle\Entity\Post,
     Soloist\Bundle\BlogBundle\Form\Handler\PostHandler as Handler,
-    Soloist\Bundle\BlogBundle\Form\Type\ImageType
+    Soloist\Bundle\BlogBundle\Form\Type\ImageType,
     Soloist\Bundle\BlogBundle\Entity\Image;
 
 class AdminController extends ORMCrudController
