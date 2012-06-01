@@ -4,13 +4,11 @@ namespace Soloist\Bundle\BlogBundle\Entity;
 
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 
+/**
+ * Post entity
+ */
 class Post implements CrudableInterface
 {
-    /**
-     * Uploads location
-     */
-    const UPLOAD_DIR = '/web_post_uploads';
-
     /**
      * @var integer
      */
@@ -42,11 +40,6 @@ class Post implements CrudableInterface
     protected $isLead;
 
     /**
-     * @var string
-     */
-    protected $image;
-
-    /**
      * @var \DateTime
      */
     protected $publishedAt;
@@ -75,6 +68,8 @@ class Post implements CrudableInterface
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -91,6 +86,8 @@ class Post implements CrudableInterface
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
@@ -107,6 +104,8 @@ class Post implements CrudableInterface
     public function setLead($lead)
     {
         $this->lead = $lead;
+
+        return $this;
     }
 
     /**
@@ -123,6 +122,8 @@ class Post implements CrudableInterface
     public function setBody($body)
     {
         $this->body = $body;
+
+        return $this;
     }
 
     /**
@@ -139,6 +140,8 @@ class Post implements CrudableInterface
     public function setPublishedAt($publishedAt)
     {
         $this->publishedAt = $publishedAt;
+
+        return $this;
     }
 
     /**
@@ -178,6 +181,8 @@ class Post implements CrudableInterface
     public function setIsLead($isLead)
     {
         $this->isLead = $isLead;
+
+        return $this;
     }
 
     /**
@@ -202,13 +207,5 @@ class Post implements CrudableInterface
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImagePath()
-    {
-        return self::UPLOAD_DIR . '/' . $this->image;
     }
 }

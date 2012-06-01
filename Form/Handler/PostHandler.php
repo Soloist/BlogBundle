@@ -10,6 +10,9 @@ use Doctrine\ORM\EntityManager;
 
 use FrequenceWeb\Bundle\DashboardBundle\Crud\Form\Handler;
 
+/**
+ * Post form hanlder
+ */
 class PostHandler extends Handler
 {
     /**
