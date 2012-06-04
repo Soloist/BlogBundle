@@ -9,6 +9,7 @@
             <generator strategy="AUTO"/>
         </id>
         <field name="filename"  column="image"  type="string"   />
+        <many-to-one field="post" target-entity="Post" />
 
     </entity>
 

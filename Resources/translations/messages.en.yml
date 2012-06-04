@@ -1,4 +1,16 @@
 soloist.blog:
     admin:
         image_management: Images management
+        image:
+            title: Images management for the post
+            none: There are no images for the moment.
+            legend: Add an image
+            nb: Number of images
     post: Post
+    delete: Delete
+    actions: Actions
+    image: Image
+    add: Add
+
+# Form labels
+filename: Image

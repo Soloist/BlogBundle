@@ -55,6 +55,11 @@ class Post implements CrudableInterface
     protected $updatedAt;
 
     /**
+     * @var  array
+     */
+    protected $images;
+
+    /**
      * @return int
      */
     public function getId()
@@ -194,6 +199,7 @@ class Post implements CrudableInterface
     }
 
     /**
+<<<<<<< HEAD
      * @param string $image
      */
     public function setImage($image)
@@ -207,5 +213,24 @@ class Post implements CrudableInterface
     public function getImage()
     {
         return $this->image;
+=======
+     * Get the images collection
+     * @return ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add an image to the post
+     * @param Image $image
+     */
+    public function addImage(Image $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+>>>>>>> Added worked admin
     }
 }

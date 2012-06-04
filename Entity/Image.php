@@ -24,22 +24,57 @@ class Image
      */
     protected $filename;
 
-    public function getId(){
+    /**
+     * post
+     * @var Post
+     */
+    protected $post;
+
+    /**
+     * Get id
+     * @return integer
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setId($id){
-        $this->id = $id;
+    /**
+     * Get filename
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set filename
+     * @param string $filename
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
 
         return $this;
     }
 
-    public function getFilename(){
-        return $this->filename;
+    /**
+     * Get post
+     * @return Post
+     */
+    public function getPost()
+    {
+        return $this->post;
     }
 
-    public function setFilename($filename){
-        $this->filename = $filename;
+    /**
+     * Set Post
+     * @param Post $post
+     */
+    public function setPost(Post $post)
+    {
+        $this->post = $post;
 
         return $this;
     }

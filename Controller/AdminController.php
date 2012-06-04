@@ -6,7 +6,7 @@ use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
 
 use Soloist\Bundle\BlogBundle\Form\Type\PostType,
     Soloist\Bundle\BlogBundle\Entity\Post,
-    Soloist\Bundle\BlogBundle\Form\Handler\PostHandler as Handler,
+    Soloist\Bundle\BlogBundle\Form\Handler\ImageHandler,
     Soloist\Bundle\BlogBundle\Form\Type\ImageType,
     Soloist\Bundle\BlogBundle\Entity\Image;
 
@@ -42,21 +42,6 @@ class AdminController extends ORMCrudController
         );
     }
 
-
-    /**
-     * Get the form handler
-     *
-     * @return \Soloist\Bundle\BlogBundle\Form\Handler\PostHandler
-     */
-    protected function getFormHandler()
-    {
-        return new Handler(
-            $this->getDoctrine()->getEntityManager(),
-            $this->get('form.factory'),
-            $this->getAbsoluteUploadDir()
-        );
-    }
-
     /**
      * Get the absolute path to upload dir
      * @return string
@@ -83,10 +68,74 @@ class AdminController extends ORMCrudController
 
         return $this->render('SoloistBlogBundle:Admin:index_image.html.twig',
             array(
-                'product' => $product,
+                'post' => $post,
                 'form' => $form->createView()
             )
         );
+    }
+
+    /**
+     * Add an image to a specified post
+     *
+     * @param Tfhc\Bundle\SiteBundle\Entity\Post $post
+     *
+     * @return Response
+     */
+    public function createImageAction(Post $post)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $uploadDir = $this->getAbsoluteUploadDir();
+        $handler = new ImageHandler($em, $this->get('form.factory'), $uploadDir);
+        $form = $handler->getForm();
+
+        if ($handler->create($form, $this->get('request'), $post)) {
+
+            return $this->redirect($this->generateUrl('soloist_blog_admin_image_index',
+                array('id' => $post->getId())
+            ));
+        }
+
+        $this->addImageBreadcrumb($post);
+
+        return $this->render('SoloistBlogBundle:Admin:index_image.html.twig',
+            array(
+                'post' => $post,
+                'form' => $form->createView()
+            )
+        );
+
+    }
+
+
+    /**
+     * Delete an image from a post
+     *
+     * @param Post $post
+     * @param integer $key key of the image in the post
+     *
+     * @return Response
+     */
+    public function deleteImageAction(Image $îmage)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $filename = $image->getFilename();
+        $em->remove($image);
+
+        if (!empty($filename)) {
+            $path = $this->getAbsoluteWebDir() . $image;
+
+            if (is_file($path)) {
+                unlink($path);
+            }
+        }
+
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('soloist_blog_admin_image_index',
+            array('id' => $post->getId())
+        ));
     }
 
 
