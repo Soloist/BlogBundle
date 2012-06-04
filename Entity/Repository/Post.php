@@ -4,6 +4,9 @@ namespace Soloist\Bundle\BlogBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+/**
+ * Post repository
+ */
 class Post extends EntityRepository
 {
     /**

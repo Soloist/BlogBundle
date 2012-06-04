@@ -4,7 +4,9 @@ namespace Soloist\Bundle\BlogBundle\EventListener;
 
 use FrequenceWeb\Bundle\DashboardBundle\Menu\Event\Configure;
 
-
+/**
+ * Dashboard listener: add the bundle to the admin panel
+ */
 class DashboardListener
 {
     public function onConfigureNewMenu(Configure $event)

@@ -1,6 +1,14 @@
 
 <h2><a href="{{ path('soloist_blog_show', { slug: post.slug }) }}">{{ post.title }}</a></h2>
 <div class="post-body">
+    <ul>
+        {% for image in post.images %}
+        <li>
+            <img src="{{ constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename }}"
+                alt="{{ image.name }}" />
+        </li>
+        {% endfor %}
+    </ul>
     {{ post.body | raw }}
 </div>
 
