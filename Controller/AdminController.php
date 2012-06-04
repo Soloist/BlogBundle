@@ -112,19 +112,19 @@ class AdminController extends ORMCrudController
      * Delete an image from a post
      *
      * @param Post $post
-     * @param integer $key key of the image in the post
      *
      * @return Response
      */
-    public function deleteImageAction(Image $îmage)
+    public function deleteImageAction(Image $image)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
         $filename = $image->getFilename();
+        $post = $image->getPost();
         $em->remove($image);
 
         if (!empty($filename)) {
-            $path = $this->getAbsoluteWebDir() . $image;
+            $path = $this->getAbsoluteUploadDir() . $filename;
 
             if (is_file($path)) {
                 unlink($path);
