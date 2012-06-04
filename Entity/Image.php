@@ -10,7 +10,7 @@ class Image
     /**
      * Uploads location
      */
-    const UPLOAD_DIR = '/web_post_uploads/';
+    const UPLOAD_DIR = '/web_post_uploads';
 
     /**
      * id
@@ -103,5 +103,10 @@ class Image
         $this->post = $post;
 
         return $this;
+    }
+
+    public function getPath()
+    {
+        return self::UPLOAD_DIR . '/' . $this->filename;
     }
 }
