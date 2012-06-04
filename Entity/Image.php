@@ -19,6 +19,12 @@ class Image
     protected $id;
 
     /**
+     * Name
+     * @var string
+     */
+    protected $name;
+
+    /**
      * filename
      * @var string
      */
@@ -55,6 +61,26 @@ class Image
     public function setFilename($filename)
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
 
         return $this;
     }
