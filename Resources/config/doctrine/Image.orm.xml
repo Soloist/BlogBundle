@@ -7,7 +7,7 @@
         <id    name="id"        column="id"     type="integer"   >
             <generator strategy="AUTO"/>
         </id>
-        <field name="name"      column="image"  type="string"   />
+        <field name="name"      column="name"   type="string"   />
         <field name="filename"  column="image"  type="string"   />
         <many-to-one field="post" target-entity="Post" />
 

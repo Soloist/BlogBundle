@@ -217,4 +217,18 @@ class Post implements CrudableInterface
 
         return $this;
     }
+
+    /**
+     * Get the first image
+     *
+     * @return Image
+     */
+    public function getFirstImage()
+    {
+        if($this->images->count() > 0) {
+            return $this->images[0];
+        }
+
+        return null;
+    }
 }
