@@ -11,6 +11,9 @@ soloist.blog:
     actions: Actions
     image: Image
     add: Ajouter
+    last:
+        title: Actualités
+news.readmore: Lire la suite
 
 # Form labels
 filename: Image

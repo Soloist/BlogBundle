@@ -199,21 +199,6 @@ class Post implements CrudableInterface
     }
 
     /**
-<<<<<<< HEAD
-     * @param string $image
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-=======
      * Get the images collection
      * @return ArrayCollection
      */
@@ -231,6 +216,5 @@ class Post implements CrudableInterface
         $this->images[] = $image;
 
         return $this;
->>>>>>> Added worked admin
     }
 }
