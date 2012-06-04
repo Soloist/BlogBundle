@@ -25,5 +25,20 @@ class SoloistBlogExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $imagineFilters = array();
+        try {
+            $imagineFilters = $container->getParameter('imagine.filters');
+        } catch (\Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException $e) {}
+
+        $imagineFilters['soloist_blog_admin_thumb'] = array(
+            'type'    => 'thumbnail',
+            'options' => array(
+                'mode' => 'outbound',
+                'size' => array(200, 200)
+            )
+        );
+
+        $container->setParameter('imagine.filters', $imagineFilters);
     }
 }

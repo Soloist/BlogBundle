@@ -18,7 +18,8 @@
                 {% for image in post.images %}
                     <tr>
                         <td>
-                            <img src="{{ (constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename) | apply_filter('soloist_blog_admin_thumb') }}" alt="post image" />
+                            <img src="{{ (constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename)
+                                         | apply_filter('soloist_blog_admin_thumb') }}" alt="post image" />
                         </td>
                         <td class="crud-actions">
                             <a class="btn btn-mini btn-danger ask-delete"
@@ -34,7 +35,8 @@
         {% endif %}
     </div>
     <div class="span4">
-        <form class="well" action="{{ path('soloist_blog_admin_image_create', {'id': post.id}) }}" method="post" {{ form_enctype(form) }}>
+        <form class="well" action="{{ path('soloist_blog_admin_image_create', {'id': post.id}) }}"
+              method="post" {{ form_enctype(form) }}>
             <fieldset>
                 <legend>{% trans %}soloist.blog.admin.image.legend{% endtrans %}</legend>
                 {{ form_widget(form) }}
