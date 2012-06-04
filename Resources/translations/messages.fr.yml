@@ -1,0 +1,20 @@
+soloist.blog:
+    admin:
+        image_management: Gérer les images
+        image:
+            title: Gestion d'images pour l'article
+            none: Il n'y a pas d'image pour le moment.
+            legend: Ajouter une image
+            nb: Nombre d'images
+    post: Article
+    delete: Supprimer
+    actions: Actions
+    image: Image
+    add: Ajouter
+    last:
+        title: Actualités
+news.readmore: Lire la suite
+
+# Form labels
+filename: Image
+name: Nom

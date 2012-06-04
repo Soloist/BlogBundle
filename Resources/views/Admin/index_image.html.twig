@@ -1,0 +1,56 @@
+{% extends 'FrequenceWebDashboardBundle::admin.html.twig' %}
+
+{% block body %}
+<h1>{% trans %}soloist.blog.admin.image.title{% endtrans %} "{{ post.title }}"</h1>
+<div class="row-fluid">
+    <div class="span8">
+        {% if post.images is empty %}
+            <p>{% trans %}soloist.blog.admin.image.none{% endtrans %}</p>
+        {% else %}
+        <table class="table table-bordered table-striped crud-list table-condensed">
+            <thead>
+                <tr>
+                    <th>{% trans %}soloist.blog.image{% endtrans %}</th>
+                    <th class="crud-actions">{% trans %}soloist.blog.actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for image in post.images %}
+                    <tr>
+                        <td>
+                            <img src="{{ (constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename)
+                                         | apply_filter('soloist_blog_admin_thumb') }}" alt="post image" />
+                        </td>
+                        <td class="crud-actions">
+                            <a class="btn btn-mini btn-danger ask-delete"
+                               href="{{ path('soloist_blog_admin_image_delete',
+                               {'id': image.id }) }}">
+                                <i class="icon-trash icon-white"></i> {% trans %}soloist.blog.delete{% endtrans %}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+    <div class="span4">
+        <form class="well" action="{{ path('soloist_blog_admin_image_create', {'id': post.id}) }}"
+              method="post" {{ form_enctype(form) }}>
+            <fieldset>
+                <legend>{% trans %}soloist.blog.admin.image.legend{% endtrans %}</legend>
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-success">{% trans %}soloist.blog.add{% endtrans %}</button>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block aside %}
+<dl>
+    <dt><span class="label">{% trans %}soloist.blog.admin.image.nb{% endtrans %}</span></dt>
+    <dd>{{ post.images|length }}</dd>
+</dl>
+{% endblock %}

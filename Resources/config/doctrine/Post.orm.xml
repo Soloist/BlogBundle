@@ -16,7 +16,6 @@
         <field name="lead"         column="lead"          type="text"     />
         <field name="body"         column="body"          type="text"     />
         <field name="isLead"       column="is_lead"       type="boolean" />
-        <field name="image"        column="image"         type="string"   />
         <field name="publishedAt"  column="published_at"  type="datetime" />
         <field name="createdAt"    column="created_at"    type="datetime"  >
             <gedmo:timestampable on="create"/>
@@ -24,6 +23,7 @@
         <field name="updatedAt"    column="updated_at"    type="datetime"  >
             <gedmo:timestampable on="update"/>
         </field>
+        <one-to-many field="images" target-entity="Image" mapped-by="post" />
 
     </entity>
 

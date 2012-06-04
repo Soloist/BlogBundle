@@ -4,13 +4,11 @@ namespace Soloist\Bundle\BlogBundle\Entity;
 
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 
+/**
+ * Post entity
+ */
 class Post implements CrudableInterface
 {
-    /**
-     * Uploads location
-     */
-    const UPLOAD_DIR = '/web_post_uploads';
-
     /**
      * @var integer
      */
@@ -42,11 +40,6 @@ class Post implements CrudableInterface
     protected $isLead;
 
     /**
-     * @var string
-     */
-    protected $image;
-
-    /**
      * @var \DateTime
      */
     protected $publishedAt;
@@ -62,6 +55,11 @@ class Post implements CrudableInterface
     protected $updatedAt;
 
     /**
+     * @var  array
+     */
+    protected $images;
+
+    /**
      * @return int
      */
     public function getId()
@@ -75,6 +73,8 @@ class Post implements CrudableInterface
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -91,6 +91,8 @@ class Post implements CrudableInterface
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
@@ -107,6 +109,8 @@ class Post implements CrudableInterface
     public function setLead($lead)
     {
         $this->lead = $lead;
+
+        return $this;
     }
 
     /**
@@ -123,6 +127,8 @@ class Post implements CrudableInterface
     public function setBody($body)
     {
         $this->body = $body;
+
+        return $this;
     }
 
     /**
@@ -139,6 +145,8 @@ class Post implements CrudableInterface
     public function setPublishedAt($publishedAt)
     {
         $this->publishedAt = $publishedAt;
+
+        return $this;
     }
 
     /**
@@ -178,6 +186,8 @@ class Post implements CrudableInterface
     public function setIsLead($isLead)
     {
         $this->isLead = $isLead;
+
+        return $this;
     }
 
     /**
@@ -189,26 +199,36 @@ class Post implements CrudableInterface
     }
 
     /**
-     * @param string $image
+     * Get the images collection
+     * @return ArrayCollection
      */
-    public function setImage($image)
+    public function getImages()
     {
-        $this->image = $image;
+        return $this->images;
     }
 
     /**
-     * @return string
+     * Add an image to the post
+     * @param Image $image
      */
-    public function getImage()
+    public function addImage(Image $image)
     {
-        return $this->image;
+        $this->images[] = $image;
+
+        return $this;
     }
 
     /**
-     * @return string
+     * Get the first image
+     *
+     * @return Image
      */
-    public function getImagePath()
+    public function getFirstImage()
     {
-        return self::UPLOAD_DIR . '/' . $this->image;
+        if($this->images->count() > 0) {
+            return $this->images[0];
+        }
+
+        return null;
     }
 }
