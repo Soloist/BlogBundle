@@ -4,8 +4,7 @@
     <ul>
         {% for image in post.images %}
         <li>
-            <img src="{{ constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename }}"
-                alt="{{ image.name }}" />
+            <img src="{{ image.getPath() }}" alt="{{ image.name }}" />
         </li>
         {% endfor %}
     </ul>

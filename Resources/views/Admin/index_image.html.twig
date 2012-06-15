@@ -18,8 +18,8 @@
                 {% for image in post.images %}
                     <tr>
                         <td>
-                            <img src="{{ (constant('Soloist\\Bundle\\BlogBundle\\Entity\\Image::UPLOAD_DIR') ~ image.filename)
-                                         | apply_filter('soloist_blog_admin_thumb') }}" alt="post image" />
+                            <img    src="{{ image.getPath() | apply_filter('soloist_blog_admin_thumb') }}"
+                                    alt="post image" />
                         </td>
                         <td class="crud-actions">
                             <a class="btn btn-mini btn-danger ask-delete"
