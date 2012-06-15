@@ -10,7 +10,7 @@ class Image
     /**
      * Uploads location
      */
-    const UPLOAD_DIR = '/web_post_uploads';
+    const UPLOAD_DIR = '/web_post_uploads/';
 
     /**
      * id
