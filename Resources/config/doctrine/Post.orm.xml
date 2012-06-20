@@ -12,9 +12,17 @@
         <field name="slug"         column="slug"          type="string"    >
             <gedmo:slug unique="true" style="default" updatable="false" separator="-" fields="title" />
         </field>
-        <field name="title"        column="title"         type="string"   />
-        <field name="lead"         column="lead"          type="text"     />
-        <field name="body"         column="body"          type="text"     />
+
+        <field name="title"        column="title"         type="string">
+            <gedmo:translatable/>
+        </field>
+        <field name="lead"         column="lead"          type="text">
+            <gedmo:translatable/>
+        </field>
+        <field name="body"         column="body"          type="text">
+            <gedmo:translatable/>
+        </field>
+
         <field name="isLead"       column="is_lead"       type="boolean" />
         <field name="publishedAt"  column="published_at"  type="datetime" />
         <field name="createdAt"    column="created_at"    type="datetime"  >
@@ -23,6 +31,9 @@
         <field name="updatedAt"    column="updated_at"    type="datetime"  >
             <gedmo:timestampable on="update"/>
         </field>
+
+        <gedmo:translation entity="Gedmo\Translatable\Entity\Translation" locale="locale"/>
+
         <one-to-many field="images" target-entity="Image" mapped-by="post">
             <cascade>
                 <cascade-all/>

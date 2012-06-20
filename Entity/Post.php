@@ -60,6 +60,11 @@ class Post implements CrudableInterface
     protected $images;
 
     /**
+     * @var string
+     */
+    protected $locale;
+
+    /**
      * @return int
      */
     public function getId()
@@ -230,5 +235,14 @@ class Post implements CrudableInterface
         }
 
         return null;
+    }
+
+    /**
+     * Translatable setter for doctrine extensions
+     * @param string $locale
+     */
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
     }
 }
