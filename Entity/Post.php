@@ -64,6 +64,11 @@ class Post implements CrudableInterface
      */
     protected $locale;
 
+    public function __construct()
+    {
+        $this->publishedAt = new \DateTime();
+    }
+
     /**
      * @return int
      */
