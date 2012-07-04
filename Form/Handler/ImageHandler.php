@@ -56,8 +56,8 @@ class ImageHandler
 
     /**
      * Create an image
-     * @param  Form    $form
-     * @param  Request $request
+     * @param Form    $form
+     * @param Request $request
      * @return boolean
      */
     public function create(Form $form, Request $request, Post $post)

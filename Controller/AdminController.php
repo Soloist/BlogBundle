@@ -18,6 +18,7 @@ class AdminController extends ORMCrudController
     protected function getParams()
     {
         $translator = $this->get('translator');
+
         return array(
             'display'      => array(
                 'id'          => array('label' => 'N°'),
