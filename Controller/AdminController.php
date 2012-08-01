@@ -31,7 +31,7 @@ class AdminController extends ORMCrudController
             'plural'       => 'articles',
             'formTemplate' => 'SoloistBlogBundle:Admin:form.html.twig',
             'order'        => array('publishedAt' => 'DESC'),
-            'form_type'      => new PostType,
+            'form_type'      => $this->get('soloist.blog.form.type'),
             'class'          => new Post,
             'object_actions' => array(
                 'manage_image' => array(

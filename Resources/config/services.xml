@@ -9,6 +9,7 @@
         <parameter key="soloist.blog.listener.menu.class">Soloist\Bundle\BlogBundle\EventListener\DashboardListener</parameter>
         <parameter key="soloist.blog.listener.block.class">Soloist\Bundle\BlogBundle\EventListener\BlockListener</parameter>
         <parameter key="soloist.blog.form.handler.class">Soloist\Bundle\BlogBundle\Form\Handler\Post</parameter>
+        <parameter key="soloist.blog.form.type.class">Soloist\Bundle\BlogBundle\Form\Type\PostType</parameter>
     </parameters>
 
     <services>
@@ -22,6 +23,9 @@
         <service id="soloist.blog.form.handler" class="%soloist.blog.form.handler.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="form.factory" />
+        </service>
+        <service id="soloist.blog.form.type" class="%soloist.blog.form.type.class%">
+            <argument type="service" id="event_dispatcher" />
         </service>
     </services>
 
