@@ -72,4 +72,19 @@ class DefaultController extends Controller
             'posts' => $this->getDoctrine()->getManager()->getRepository('SoloistBlogBundle:Post')->findLasts($nb)
         );
     }
+
+    /**
+     * Show a list of posts
+     * @param  string $category
+     * @return array
+     */
+    public function showByCategoryAction($category)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('SoloistBlogBundle:Post')->findByCategory($category);
+
+        return array(
+            'posts' => $posts
+        );
+    }
 }
