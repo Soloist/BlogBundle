@@ -64,6 +64,12 @@ class Post implements CrudableInterface
      */
     protected $locale;
 
+    /**
+     * Slug of a category
+     * @var string
+     */
+    protected $category;
+
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
@@ -206,6 +212,26 @@ class Post implements CrudableInterface
     public function getIsLead()
     {
         return $this->isLead;
+    }
+
+    /**
+     * Get the category
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set category
+     * @param string $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
     }
 
     /**
