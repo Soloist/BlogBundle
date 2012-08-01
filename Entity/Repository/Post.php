@@ -68,10 +68,8 @@ class Post extends EntityRepository
 
     public function findByCategory($category)
     {
-        return $this->createQueryBuilder('p')
+        return $this
             ->findBy(array('category' => $category))
-            ->getQuery()
-            ->getResults()
         ;
     }
 }

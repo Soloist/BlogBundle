@@ -77,6 +77,7 @@ class DefaultController extends Controller
      * Show a list of posts
      * @param  string $category
      * @return array
+     * @Template()
      */
     public function showByCategoryAction($category)
     {
