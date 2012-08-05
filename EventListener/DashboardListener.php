@@ -2,7 +2,7 @@
 
 namespace Soloist\Bundle\BlogBundle\EventListener;
 
-use FrequenceWeb\Bundle\DashboardBundle\Menu\Event\Configure;
+use Soloist\Bundle\BaseAdminBundle\Menu\Event\Configure;
 
 /**
  * Dashboard listener: add the bundle to the admin panel

@@ -14,8 +14,8 @@
 
     <services>
         <service id="soloist.blog.listener.menu" class="%soloist.blog.listener.menu.class%">
-            <tag name="kernel.event_listener" event="fw_dashboard.configure.menu.new"  method="onConfigureNewMenu" />
-            <tag name="kernel.event_listener" event="fw_dashboard.configure.menu.top"  method="onConfigureTopMenu" />
+            <tag name="kernel.event_listener" event="soloist_base_admin.configure.menu.new"  method="onConfigureNewMenu" />
+            <tag name="kernel.event_listener" event="soloist_base_admin.configure.menu.top"  method="onConfigureTopMenu" />
         </service>
         <service id="soloist.blog.listener.block" class="%soloist.blog.listener.block.class%">
             <tag name="kernel.event_listener" event="soloist_block.request_types"  method="onRequestTypes" />
