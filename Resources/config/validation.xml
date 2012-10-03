@@ -9,4 +9,26 @@
         </property>
     </class>
 
+    <class name="Soloist\Bundle\BlogBundle\Entity\Post">
+        <property name="title">
+            <constraint name="NotBlank" />
+        </property>
+        <property name="publishedAt">
+            <constraint name="NotBlank" />
+            <constraint name="Date" />
+        </property>
+        <property name="isLead">
+            <constraint name="NotNull" />
+            <constraint name="Type">
+                <option name="type">Boolean</option>
+            </constraint>
+        </property>
+        <property name="lead">
+            <constraint name="NotBlank" />
+        </property>
+        <property name="body">
+            <constraint name="NotBlank" />
+        </property>
+    </class>
+
 </constraint-mapping>

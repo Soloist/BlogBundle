@@ -34,14 +34,13 @@ class PostType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $categories = $this->retrieveCategories();
         $builder
             ->add('title')
+            ->add('category', 'choice', array('choice_list' => $this->retrieveCategories()))
             ->add('publishedAt', 'fw_jquery_date')
             ->add('isLead', null, array('required' => false))
             ->add('lead', 'html_purified_textarea')
             ->add('body', 'html_purified_textarea')
-            ->add('category', 'choice', array('choice_list' => $categories,))
         ;
     }
 
@@ -50,9 +49,7 @@ class PostType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Soloist\Bundle\BlogBundle\Entity\Post',
-        ));
+        $resolver->setDefaults(array('data_class' => 'Soloist\Bundle\BlogBundle\Entity\Post'));
     }
 
     /**

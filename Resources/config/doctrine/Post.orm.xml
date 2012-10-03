@@ -14,13 +14,13 @@
         </field>
 
         <field name="title"        column="title"         type="string">
-            <gedmo:translatable/>
+            <gedmo:translatable />
         </field>
         <field name="lead"         column="lead"          type="text">
-            <gedmo:translatable/>
+            <gedmo:translatable />
         </field>
         <field name="body"         column="body"          type="text">
-            <gedmo:translatable/>
+            <gedmo:translatable />
         </field>
         <field name="category"     column="category"      type="string" nullable="true" />
 

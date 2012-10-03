@@ -1,15 +1,16 @@
-{{ form_row(form.title) }}
+{{ form_row(form.title, { label: 'Titre' }) }}
+{{ form_row(form.category, { label: 'Catégorie' }) }}
 
 <div class="control-group">
-    <label class="control-label">Published at</label>
+    <label class="control-label">Date de publication</label>
     <div class="controls">
         {{ form_widget(form.publishedAt) }}
     </div>
     {{ form_errors(form.publishedAt) }}
 </div>
 
-{{ form_row(form.isLead) }}
-{{ form_row(form.lead) }}
-{{ form_row(form.body) }}
+{{ form_row(form.isLead, { label: 'A la Une ?' }) }}
+{{ form_row(form.lead, { label: 'Accroche' }) }}
+{{ form_row(form.body, { label: 'Corps de l\'actu' }) }}
 
 {{ form_rest(form) }}

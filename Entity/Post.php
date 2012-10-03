@@ -2,6 +2,7 @@
 
 namespace Soloist\Bundle\BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 
 /**
@@ -55,7 +56,7 @@ class Post implements CrudableInterface
     protected $updatedAt;
 
     /**
-     * @var  array
+     * @var  ArrayCollection
      */
     protected $images;
 
@@ -73,6 +74,7 @@ class Post implements CrudableInterface
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
+        $this->images      = new ArrayCollection;
     }
 
     /**
