@@ -36,7 +36,7 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('category', 'choice', array('choice_list' => $this->retrieveCategories()))
+            ->add('category', 'choice', array('required' => false, 'choice_list' => $this->retrieveCategories()))
             ->add('publishedAt', 'fw_jquery_date')
             ->add('isLead', null, array('required' => false))
             ->add('lead', 'html_purified_textarea')
