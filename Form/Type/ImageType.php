@@ -2,14 +2,18 @@
 
 namespace Soloist\Bundle\BlogBundle\Form\Type;
 
-use Symfony\Component\Form\FormBuilderInterface,
-    Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Image type
  */
 class ImageType extends AbstractType
 {
+    /**
+     * @{inheritDoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -18,13 +22,21 @@ class ImageType extends AbstractType
         ;
     }
 
-    public function getDefaultOptions()
+    /**
+     * @{inheritDoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
-            'data_class' => 'Soloist\\Bundle\\BlogBundle\\Entity\\Image',
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'Soloist\Bundle\BlogBundle\Entity\Image',
+            )
         );
     }
 
+    /**
+     * @{inheritDoc}
+     */
     public function getName()
     {
         return 'soloist_blog_image';
