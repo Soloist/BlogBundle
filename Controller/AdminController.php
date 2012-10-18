@@ -49,8 +49,7 @@ class AdminController extends ORMCrudController
      */
     private function getAbsoluteUploadDir()
     {
-        return $this->container->getParameter('kernel.root_dir') . '/../web'
-            . Image::UPLOAD_DIR;
+        return $this->container->getParameter('kernel.root_dir') . '/../web' . Image::UPLOAD_DIR;
     }
 
 
