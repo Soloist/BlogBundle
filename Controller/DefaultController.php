@@ -79,10 +79,10 @@ class DefaultController extends Controller
      * @return array
      * @Template()
      */
-    public function showByCategoryAction($category)
+    public function showByCategoryAction($category, $limit = 5)
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('SoloistBlogBundle:Post')->findByCategory($category);
+        $posts = $em->getRepository('SoloistBlogBundle:Post')->findByCategory($category, $limit);
 
         return array(
             'posts' => $posts

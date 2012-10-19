@@ -66,10 +66,10 @@ class Post extends EntityRepository
         ;
     }
 
-    public function findByCategory($category)
+    public function findByCategory($category, $limit = 5)
     {
         return $this
-            ->findBy(array('category' => $category))
+            ->findBy(array('category' => $category), array('publishedAt' => 'DESC'), $limit)
         ;
     }
 }
